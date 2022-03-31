@@ -1,8 +1,8 @@
 USE albums_db;
 
-DESCRIBE albums;
+SELECT COUNT(*) FROM albums;
 -- how many rows are in the 'albums' table?
--- 	There are 6 rows in this table. 
+-- 	There are 31 rows in this table. 
 
 -- How many unique artist names are in the albums table?
 SELECT COUNT(DISTINCT artist) FROM albums;
@@ -16,11 +16,11 @@ DESCRIBE albums;
 SELECT MIN(release_date) from albums;
 		-- The oldest release date is 1967.
 -- What is the most recent release date?
-SELECT Max(release_date) from albums;
-		-- The mosr recent release date is 2011.
+SELECT MAX(release_date) from albums;
+		-- The most recent release date is 2011.
         
 -- The name of all albums by Pink Floyd.
-SELECT name from albums WHERE artist = 'Pink Floyd';
+SELECT name FROM albums WHERE artist = 'Pink Floyd';
 		-- The Dark Side of the Moon
         -- The Wall
         
@@ -37,7 +37,7 @@ SELECT name FROM albums WHERE release_date BETWEEN 1989 AND 2000;
 -- Listed below when the query is run.
 
 -- Which albums had less than 20 million certified sales?
-SELECT name FROM albums WHERE sales < 20000000;
+SELECT name FROM albums WHERE sales < 20;
 -- Listed below when the query is run.
 
 -- All the albums with a genre of "Rock". Why do these query results not include albums with a genre of "Hard rock" or "Progressive rock"?
