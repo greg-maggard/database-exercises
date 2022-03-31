@@ -13,10 +13,10 @@ DESCRIBE albums;
 -- 'id' is the primary key.
 
 -- What is the oldest release date for any album in the albums table? 
-SELECT MIN(release_date) from albums;
+SELECT MIN(release_date) FROM albums;
 		-- The oldest release date is 1967.
 -- What is the most recent release date?
-SELECT MAX(release_date) from albums;
+SELECT MAX(release_date) FROM albums;
 		-- The most recent release date is 2011.
         
 -- The name of all albums by Pink Floyd.
@@ -33,7 +33,7 @@ SELECT genre FROM albums WHERE name = 'Nevermind';
 -- 'Grunge, Alternative rock'
 
 -- Which albums were released in the 1990s
-SELECT name FROM albums WHERE release_date BETWEEN 1989 AND 2000;
+SELECT name, release_date FROM albums WHERE release_date BETWEEN 1990 AND 1999;
 -- Listed below when the query is run.
 
 -- Which albums had less than 20 million certified sales?
