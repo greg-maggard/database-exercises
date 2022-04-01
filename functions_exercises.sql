@@ -129,7 +129,7 @@ AND birth_date LIKE '%-12-25'
 ORDER BY birth_date ASC, hire_date DESC;
 -- 362 employees returned. Oldest employee hired last is Khun Bernini. Youngest employee hired first is Douadi Pettis. 
 
--- ************************************************************ THE ORDER_BY EXERCISES ARE BELOW THIS LINE ************************************************************
+-- ************************************************************ THE FUNCTION EXERCISES ARE BELOW THIS LINE ************************************************************
 
 -- Write a query to to find all employees whose last name starts and ends with 'E'. Use concat() to combine their first and last name together as a single column named full_name.
 SELECT CONCAT (first_name, ' ', last_name) AS full_name
@@ -146,12 +146,13 @@ WHERE last_name LIKE 'E%E';
 -- Find all employees hired in the 90s and born on Christmas. Use datediff() function to find how many days they have been working at the company (Hint: You will also need to use NOW() or CURDATE())
 SELECT * , DATEDIFF (CURDATE(),hire_date) AS days_employed
 FROM employees
-WHERE hire_date BETWEEN '1990-01-01' AND '1999-12-31'
+WHERE hire_date LIKE '199%'
 AND birth_date LIKE '%-12-25';
 -- When run, "days_employed" shows the number of days that have passed since the person was hired. 
 
 -- Find the smallest and largest current salary from the salaries table.
 DESCRIBE salaries;
+
 SELECT MAX(salary), MIN(salary)
 FROM salaries
 WHERE CURDATE() < to_date;
