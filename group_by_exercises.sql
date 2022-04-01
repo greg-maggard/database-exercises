@@ -16,8 +16,8 @@ GROUP BY last_name;
 -- Write a query to to find all unique combinations of first and last names of all employees whose last names start and end with 'E'.
 SELECT first_name, last_name
 FROM employees
-GROUP BY first_name, last_name
-HAVING last_name LIKE 'E%e';
+WHERE last_name LIKE 'e%e'
+GROUP BY first_name, last_name;
 -- 846 unique combinations are returned when this is run. 
 
 -- Write a query to find the unique last names with a 'q' but not 'qu'. Include those names in a comment in your sql code.
@@ -28,7 +28,7 @@ HAVING last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
 -- Chleq, Lindqvist, and Qiwen
 
 -- Add a COUNT() to your results (the query above) to find the number of employees with the same last name.
-Select last_name, COUNT(last_name) 
+Select last_name, COUNT(last_name) AS 'number_with_name'
 FROM employees
 GROUP BY last_name
 HAVING last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
@@ -48,4 +48,6 @@ GROUP BY username
 -- HAVING duplicate_count > 1 #windows function quick-look
 ORDER BY COUNT(*) DESC;
 -- The different usernames are below when query is run. Removing the comment in the 4th line will show that there are 13251 usernames that are duplicated. I want to look into window functions a bit later to display this more elegantly. 
+
+-- More practice with aggregate functions:
 
