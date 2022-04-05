@@ -18,5 +18,28 @@ UPDATE employees_with_departments
 SET full_name = CONCAT(first_name, ' ', last_name);
 
 -- Remove the first_name and last_name columns from the table.
+ALTER TABLE employees_with_departments DROP COLUMN first_name;
+ALTER TABLE employees_with_departments DROP COLUMN last_name;
 
 -- What is another way you could have ended up with this same table?
+
+-- Create a temporary table based on the payment table from the sakila database.
+CREATE TEMPORARY TABLE sakila_payments AS
+SELECT * FROM sakila.payment;
+
+SELECT * FROM sakila_payments;
+SHOW CREATE TABLE sakila_payments;
+
+-- Write the SQL necessary to transform the amount column such that it is stored as an integer representing the number of cents of the payment. For example, 1.99 should become 199.
+
+ALTER TABLE sakila_payments
+MODIFY amount DECIMAL (6, 2);
+
+UPDATE sakila_payments SET amount = amount * 100;
+
+ALTER TABLE sakila_payment
+MODIFY amount INTEGER;
+
+
+
+
