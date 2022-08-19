@@ -73,7 +73,7 @@ WHERE district IN ('California', 'England', 'Taipei', 'West Java');
 SELECT payment_id, amount, payment_date
 FROM payment
 WHERE DATE(payment_date) IN ('2005-05-25', '2005-05-27', '2005-05-29');
-# When I was originally doing this, I was trying to put the date on the 'IN' list values, but I needed to pull the date from the table's datetime values. 
+# When I was originally doing this, I was trying to put the date on the 'IN' list values, but I needed to pull the date from the tables datetime values. 
 
 SELECT *
 FROM film
@@ -115,11 +115,13 @@ FROM payment
 LIMIT 20;
 
 SELECT * FROM payment;
-##LIMIT B########################################################################################
+
 SELECT payment_date, amount
 FROM payment
-WHERE amount > 5;
-#How do I select indices from the result set? It wants rows where indices in result set are between 1000 and 2000.
+WHERE amount > 5
+LIMIT 1000
+OFFSET 1000
+# How do I select indices from the result set? It wants rows where indices in result set are between 1000 and 2000.
 
 ##LIMIT C########################################################################################
 SELECT *
